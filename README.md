@@ -8,4 +8,5 @@ tqdm;
 
 **Usage**
 python main.py [strategy:desktop|mobile]
+
 output file with results *results_[strategy].csv*
