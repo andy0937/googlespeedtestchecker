@@ -1,7 +1,7 @@
 import requests
 import config
 from tqdm import tqdm
-
+import sys
 
 def makeURL(link):
     URL = config.host+link
@@ -24,15 +24,17 @@ def parseJSON(response):
             'id': id,
             'score': str(score)}
 
+strategy = str(sys.argv[1])
+outputlog = 'result_'+strategy+'.csv'
 
 if __name__ == '__main__':
     currentURL = open(config.sitemap)
-    output = open(config.outputlog, 'w')
+    output = open(outputlog, 'w')
     for line in tqdm(currentURL.readlines()):
         k = makeURL(line.strip('\t\n'))
-        req = makeRequest(k, config.strategy, config.api_key)
+        req = makeRequest(k, strategy, config.api_key)
         vals = parseJSON(req)
-        writeStr = vals['id'] + '|' + vals['score'] + '\n'
+        writeStr = vals['score'] + ' | ' + vals['id'] + '\n'
         output.write(writeStr)
 currentURL.close()
 output.close()
