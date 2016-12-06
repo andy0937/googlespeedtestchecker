@@ -7,6 +7,8 @@ requests;
 tqdm;
 
 **Usage**
-python main.py [strategy:desktop|mobile]
+1. python3 main.py
+2. pick strategy
+
 
 output file with results *results_[strategy].csv*
