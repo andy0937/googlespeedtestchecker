@@ -7,6 +7,7 @@ requests;
 tqdm;
 
 **Usage**
+
 1. python3 main.py
 2. pick strategy
 
