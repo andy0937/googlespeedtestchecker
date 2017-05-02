@@ -2,8 +2,8 @@ import config
 import requests
 from tqdm import tqdm
 
-def makeRequest(url):
-    r = requests.get(url)
+def getCode(_url):
+    r = requests.get(_url)
     return r.status_code
 
 if __name__ == '__main__':
@@ -12,7 +12,7 @@ if __name__ == '__main__':
     output = open(outputlog, 'w')
     for line in tqdm(currentURL.readlines()):
         url = line.strip('\t\n')
-        req = makeRequest(url)
+        req = getCode(url)
         if req == 200:
             None
         else:
